@@ -37,7 +37,7 @@ const useInput = (validateValue: validateFn) => {
     initialState
   );
 
-//   const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
 //   const [isTouched, setIsTouched] = useState(false);
 
   // callback fn for individualized validating
