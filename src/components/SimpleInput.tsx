@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent } from 'react';
 import useInput from '../hooks/use-input';
 
 const SimpleInput = () => {
@@ -8,16 +8,17 @@ const SimpleInput = () => {
     hasError: nameInputHasError,
     valueChangeHandler: nameChangeHandler,
     onBlurHandler: nameBlurHandler,
-    reset: resetNameInput
+    reset: resetNameInput,
   } = useInput((value: string) => value.trim() !== '');
 
-  const {    value: email,
+  const {
+    value: email,
     valueIsValid: emailIsValid,
     hasError: emailInputHasError,
     valueChangeHandler: emailChangeHandler,
     onBlurHandler: emailBlurHandler,
-    reset: resetEmailInput} = useInput((value: string) => value.trim() !== '')
-
+    reset: resetEmailInput,
+  } = useInput((value: string) => value.trim() !== '');
 
   let formIsValid = false;
 
@@ -28,17 +29,15 @@ const SimpleInput = () => {
   const formSubmissionHandler = (event: SyntheticEvent) => {
     event.preventDefault();
 
-        if (!nameIsValid) {
+    if (!nameIsValid) {
       return;
     } else if (!emailIsValid) {
       return;
     }
 
-    resetNameInput()
-    resetEmailInput()
+    resetNameInput();
+    resetEmailInput();
   };
-
-  // const emailInputIsInvalid = !emailIsValid && emailTouched;
 
   const nameInputClasses = nameInputHasError
     ? 'form-control invalid'
@@ -68,14 +67,14 @@ const SimpleInput = () => {
           value={email}
           onBlur={emailBlurHandler}
         />
-        { emailInputHasError && (
+        {emailInputHasError && (
           <p className="error-text">
             Provide some valid E-mail (test@test.com)
           </p>
         )}
       </div>
       <div className="form-actions">
-        <button disabled={!formIsValid}>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>{' '}
       </div>
     </form>
   );
