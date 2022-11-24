@@ -57,10 +57,15 @@ const BasicForm = () => {
     emailReset();
   };
 
+  const firstClasses = firstHasError ? 'form-control invalid' : 'form-control'
+  const SecondClasses = emailHasError ? 'form-control invalid' : 'form-control'
+  const emailClasses = secondHasError ? 'form-control invalid' : 'form-control'
+
+
   return (
     <form onSubmit={submitHandler}>
       <div className="control-group">
-        <div className="form-control">
+        <div className={firstClasses}>
           <label htmlFor="name">First Name</label>
           <input
             type="text"
@@ -69,9 +74,9 @@ const BasicForm = () => {
             value={first}
             onBlur={firstBlurHandler}
           />
-          {firstHasError && <p>Provide some valid first name</p>}
+          {firstHasError && <p className='error-text'>Provide some valid first name</p>}
         </div>
-        <div className="form-control">
+        <div className={SecondClasses}>
           <label htmlFor="name">Last Name</label>
           <input
             type="text"
@@ -80,10 +85,10 @@ const BasicForm = () => {
             value={second}
             onBlur={secondBlurHandler}
           />
-          {secondHasError && <p>Provide some valid last name</p>}
+          {secondHasError && <p className='error-text'>Provide some valid last name</p>}
         </div>
       </div>
-      <div className="form-control">
+      <div className={emailClasses}>
         <label htmlFor="name">E-Mail Address</label>
         <input
           type="text"
@@ -92,10 +97,10 @@ const BasicForm = () => {
           value={email}
           onBlur={emailBlurHandler}
         />
-        {emailHasError && <p>Provide some valid E-Mail address</p>}
+        {emailHasError && <p className='error-text'>Provide some valid E-Mail address</p>}
       </div>
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
