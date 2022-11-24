@@ -9,7 +9,7 @@ const SimpleInput = () => {
     valueChangeHandler: nameChangeHandler,
     onBlurHandler: nameBlurHandler,
     reset: resetNameInput,
-  } = useInput((value: string) => value.trim() !== '');
+  } = useInput((value: string | undefined) => value!.trim() !== '');
 
   const {
     value: email,
@@ -18,7 +18,7 @@ const SimpleInput = () => {
     valueChangeHandler: emailChangeHandler,
     onBlurHandler: emailBlurHandler,
     reset: resetEmailInput,
-  } = useInput((value: string) => value.trim() !== '');
+  } = useInput((value: string | undefined) => value!.trim() !== '');
 
   let formIsValid = false;
 

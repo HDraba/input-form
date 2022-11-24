@@ -10,7 +10,7 @@ const BasicForm = () => {
     onBlurHandler: firstBlurHandler,
     reset: firstReset,
   } = useInput((first) => {
-    return first.trim().length > 2;
+    return first!.trim().length > 2;
   });
 
   const {
@@ -21,7 +21,7 @@ const BasicForm = () => {
     onBlurHandler: secondBlurHandler,
     reset: secondReset,
   } = useInput((second) => {
-    return second.trim().length > 3;
+    return second!.trim().length > 3;
   });
 
   const {
@@ -32,7 +32,7 @@ const BasicForm = () => {
     onBlurHandler: emailBlurHandler,
     reset: emailReset,
   } = useInput((email) => {
-    return email.trim().length > 6;
+    return email!.trim().length > 6;
   });
 
   let formIsValid;
