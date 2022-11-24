@@ -1,6 +1,6 @@
 import { Reducer, useReducer, useState } from 'react';
 
-type validateFn = (value: string) => boolean;
+type validateFn = (value: string | undefined) => boolean;
 
 type State = {
   value: string | undefined;
